@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Test collection
+    match /_test_connection/{docId} {
+      allow read, write: if true;
+    }
+    
+    // Listings collection
+    match /listings/{docId} {
+      allow read: if true;  // Anyone can read
+      allow create: if true;  // Anyone can create
+      allow update, delete: if false;  // No updates/deletes for now
+    }
+    
+    // Inquiries collection
+    match /inquiries/{docId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if false;
+    }
+  }
+} 

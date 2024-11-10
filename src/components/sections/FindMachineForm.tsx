@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button } from '../ui/Button'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../lib/firebase/config'
+import { sendToSheets } from '../../lib/services/sheets'
 
 const BLOCKED_DOMAINS = [
   'gmail.com',
@@ -117,6 +118,7 @@ export function FindMachineForm() {
     email: ''
   })
   const [emailError, setEmailError] = useState('')
+  const [isFocused, setIsFocused] = useState(false)
 
   const validateBusinessEmail = (email: string) => {
     const domain = email.split('@')[1]?.toLowerCase()
@@ -149,6 +151,9 @@ export function FindMachineForm() {
         timestamp: new Date().toISOString(),
         status: 'new'
       })
+
+      await sendToSheets(formData, 'buyer')
+
       alert('Thank you! We will be in touch soon.')
       setFormData({ additionalDetails: '', timeline: '', email: '' })
     } catch (error) {
@@ -158,23 +163,36 @@ export function FindMachineForm() {
   }
 
   return (
-    <div className="relative py-8">
+    <div className="relative py-4">
       <div className="max-w-3xl mx-auto px-4">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h2 className="text-2xl font-semibold gradient-text">Find Your Machine</h2>
           <p className="text-gray-400 mt-2">Tell us what you're looking for</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
+          <div className="flex gap-4">
             <textarea
-              placeholder="Tell us what kind of machine you're looking for... (type, specs, budget, etc.)"
+              placeholder="Tell us what you're looking for..."
               value={formData.additionalDetails}
               onChange={e => setFormData({ ...formData, additionalDetails: e.target.value })}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
               rows={6}
-              className="w-full"
+              className="flex-1"
               required
             />
+            {isFocused && (
+              <div className="w-48 shrink-0 text-sm text-gray-400">
+                <p className="font-medium text-sky-400 mb-2">Try to include:</p>
+                <div className="space-y-2">
+                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Budget range</div>
+                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Required specs</div>
+                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Preferred brands</div>
+                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Age range</div>
+                </div>
+              </div>
+            )}
           </div>
 
           <div>

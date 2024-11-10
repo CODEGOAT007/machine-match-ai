@@ -54,7 +54,7 @@ export function HeroSection() {
           {/* Right side - I Need To... */}
           <div className="text-center relative z-10 flex flex-col justify-center">
             <div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-center lg:text-center">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-center lg:text-center">
                 I Need To...
               </h1>
               <CTAButtons />

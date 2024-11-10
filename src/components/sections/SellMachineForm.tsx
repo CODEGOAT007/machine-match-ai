@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button } from '../ui/Button'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../lib/firebase/config'
+import { sendToSheets } from '../../lib/services/sheets'
 
 interface SellMachineFormData {
   details: string
@@ -20,12 +21,17 @@ export function SellMachineForm() {
     e.preventDefault()
 
     try {
+      // Send to Firestore
       await addDoc(collection(db, 'listings'), {
         ...formData,
         type: 'seller',
         timestamp: new Date().toISOString(),
         status: 'new'
       })
+
+      // Send to Google Sheets
+      await sendToSheets(formData, 'seller')
+
       alert('Thank you! We will be in touch soon.')
       setFormData({ details: '', timeline: '', email: '' })
     } catch (error) {

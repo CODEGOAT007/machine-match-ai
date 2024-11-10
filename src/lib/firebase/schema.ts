@@ -4,6 +4,7 @@ import { db } from './config'
 // Collection references
 export const listingsCollection = collection(db, 'listings')
 export const inquiriesCollection = collection(db, 'inquiries')
+export const dealerApplicationsCollection = collection(db, 'dealer_applications')
 
 // Collection types
 export interface Listing {
@@ -24,4 +25,19 @@ export interface Inquiry {
   email: string
   createdAt: Date
   status: 'new' | 'contacted' | 'closed'
+}
+
+export interface DealerApplication {
+  id?: string
+  companyName: string
+  website: string
+  yearsFounded: string
+  monthlyVolume: string
+  businessType: string
+  contactName: string
+  email: string
+  phone: string
+  message: string
+  timestamp: string
+  status: 'pending' | 'approved' | 'rejected'
 } 

@@ -25,39 +25,32 @@ export function FindHeroSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
               {[
                 {
-                  step: '1',
-                  title: 'Tell us what you need',
-                  description: 'Describe your machinery needs in plain language'
+                  text: 'Describe what you need in plain language'
                 },
                 {
-                  step: '2',
-                  title: 'AI Market Search',
-                  description: 'Our AI searches the entire market for matches'
+                  text: 'AI searches the entire market for matches'
                 },
                 {
-                  step: '3',
-                  title: 'Choose Your Match',
-                  description: 'Decide which option fits your needs'
+                  text: 'Select your preferred option'
                 },
                 {
-                  step: '4',
-                  title: 'We Can Handle Details',
-                  description: 'We can schedule inspection, rigging, and freight'
+                  text: 'We can handle inspection and delivery'
                 }
-              ].map((step, index) => (
+              ].map((item, index) => (
                 <div 
                   key={index}
                   className="relative p-6 px-4 rounded-lg bg-gray-800/30 border border-gray-700/50"
                 >
-                  <div className="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center text-sm font-medium">
-                    {step.step}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="px-3 py-1 rounded-md bg-sky-500 text-white text-sm font-medium">
+                      Step {index + 1}
+                    </span>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 min-h-[56px] flex items-center justify-center">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 min-h-[40px] flex items-center justify-center">
-                    {step.description}
-                  </p>
+                  <div className="mt-4">
+                    <p className="text-gray-300 text-base">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

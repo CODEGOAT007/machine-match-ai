@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-export function FindHeroSection() {
+export function SellHeroSection() {
   return (
     <div className="relative overflow-hidden">
       <div className="hero-gradient" />
@@ -17,32 +17,22 @@ export function FindHeroSection() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
         <div className="text-center relative z-10">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-            Buying Used Machinery
+            Selling Used Machinery
             <br />
             <span className="gradient-text">Just Got Way Easier</span>
           </h1>
           <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-12">
               {[
                 {
                   step: '1',
-                  title: 'Tell us what you need',
-                  description: 'Describe your machinery needs in plain language'
+                  title: 'Tell us what you have',
+                  description: 'Describe your machinery in plain language'
                 },
                 {
                   step: '2',
-                  title: 'AI Market Search',
-                  description: 'Our AI searches the entire market for matches'
-                },
-                {
-                  step: '3',
-                  title: 'Choose Your Match',
-                  description: 'Decide which option fits your needs'
-                },
-                {
-                  step: '4',
-                  title: 'We Can Handle Details',
-                  description: 'We can schedule inspection, rigging, and freight'
+                  title: 'AI Buyer Match',
+                  description: 'Our AI connects you with active buyers'
                 }
               ].map((step, index) => (
                 <div 

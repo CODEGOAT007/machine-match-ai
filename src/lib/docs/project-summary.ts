@@ -128,4 +128,53 @@
  * - Responsive forms
  * - Smooth transitions
  * - Mobile-optimized
+
+
+
+Additional Vision & Features (2024):
+
+Core Purpose:
+- Be the "easy button" for buying and selling used machinery
+- Remove complexity and uncertainty from the process
+- Focus on user intent rather than technical details
+
+Page Messaging:
+Buy Side: "Buying Used Machinery Just Got Way Easier"
+- Step 1: Tell us what you need to buy
+- Step 2: Our AI searches the entire market for matches
+- Step 3: Decide which option fits your needs
+- Step 4: We schedule inspection, rigging, and freight
+
+Sell Side: "Selling Used Machinery Just Got Way Easier"
+- Step 1: Tell us what you need to sell
+- Step 2: Our AI connects you with active buyers
+- Step 3: Local technician performs inspection
+- Step 4: We handle logistics and delivery
+
+Technician Network:
+- Nationwide network of certified inspectors
+- Pre-purchase inspections available everywhere
+- Interactive map showing technician coverage
+- Post-inspection rigging and freight coordination
+- Visual representation needed for coverage map
+
+Key Differentiators:
+- End-to-end transaction support
+- Nationwide technician network
+- No complex forms or processes
+- Focus on user intent vs technical specs
+
+Revenue Model:
+- Free for end users
+- Premium dealer features ($10k/month)
+- Transaction fees
+- Inspection/logistics fees
+
+Future Features:
+- Real-time technician availability
+- Automated inspection scheduling
+- Integrated freight quotes
+- Interactive coverage map
+- Dealer portal
+
  */ 

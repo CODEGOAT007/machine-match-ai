@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Button } from '../ui/Button'
 
-interface FindMachineFormData {
-  additionalDetails: string
+interface SellMachineFormData {
+  details: string
   timeline: string
   email: string
 }
 
-export function FindMachineForm() {
-  const [formData, setFormData] = useState<FindMachineFormData>({
-    additionalDetails: '',
+export function SellMachineForm() {
+  const [formData, setFormData] = useState<SellMachineFormData>({
+    details: '',
     timeline: '',
     email: ''
   })
@@ -24,16 +24,16 @@ export function FindMachineForm() {
     <div className="relative py-8">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-semibold gradient-text">Find Your Machine</h2>
-          <p className="text-gray-400 mt-2">Tell us what you're looking for</p>
+          <h2 className="text-2xl font-semibold gradient-text">Sell Your Machine</h2>
+          <p className="text-gray-400 mt-2">Tell us about your machinery</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <textarea
-              placeholder="Tell us what kind of machine you're looking for... (type, specs, budget, etc.)"
-              value={formData.additionalDetails}
-              onChange={e => setFormData({ ...formData, additionalDetails: e.target.value })}
+              placeholder="Tell us about your machine... (year, make, model, condition, location)"
+              value={formData.details}
+              onChange={e => setFormData({ ...formData, details: e.target.value })}
               rows={6}
               className="w-full"
               required
@@ -47,7 +47,7 @@ export function FindMachineForm() {
               className="w-full"
               required
             >
-              <option value="">When do you need it?</option>
+              <option value="">When do you need it sold?</option>
               <option value="urgent">Urgent (ASAP)</option>
               <option value="3months">1-3 months</option>
               <option value="flexible">Flexible</option>
@@ -57,7 +57,7 @@ export function FindMachineForm() {
           <div>
             <input
               type="email"
-              placeholder="Your email address for receiving quotes"
+              placeholder="Your email address for buyer inquiries"
               value={formData.email}
               onChange={e => setFormData({ ...formData, email: e.target.value })}
               className="w-full"
@@ -72,15 +72,8 @@ export function FindMachineForm() {
               size="lg"
               className="min-w-[200px]"
             >
-              Find Matches
-              <svg 
-                className="ml-2 w-5 h-5" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
+              Submit
+              <span className="ml-2 text-xl">→</span>
             </Button>
           </div>
         </form>

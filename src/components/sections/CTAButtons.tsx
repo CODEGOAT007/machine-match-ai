@@ -12,8 +12,8 @@ export function CTAButtons() {
       </div>
       
       {/* Buttons container */}
-      <div className="relative flex flex-row gap-6 justify-center items-center max-w-xl mx-auto py-4">
-        <Link href="/find-machine" className="flex-1 max-w-[260px]">
+      <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center max-w-xl mx-auto py-4">
+        <Link href="/find-machine" className="w-full sm:flex-1 sm:max-w-[260px]">
           <Button 
             variant="primary" 
             size="lg" 
@@ -31,7 +31,7 @@ export function CTAButtons() {
           </Button>
         </Link>
         
-        <Link href="/sell-machine" className="flex-1 max-w-[260px]">
+        <Link href="/sell-machine" className="w-full sm:flex-1 sm:max-w-[260px]">
           <Button 
             variant="secondary" 
             size="lg" 

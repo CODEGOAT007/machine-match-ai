@@ -167,7 +167,6 @@ export function FindMachineForm() {
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-semibold gradient-text">Find Your Machine</h2>
-          <p className="text-gray-400 mt-2">Tell us what you're looking for</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -184,7 +183,9 @@ export function FindMachineForm() {
             />
             {isFocused && (
               <div className="w-48 shrink-0 text-sm text-gray-400">
-                <p className="font-medium text-sky-400 mb-2">Try to include:</p>
+                <p className="font-medium text-sky-400 mb-2">
+                  Try to include:
+                </p>
                 <div className="space-y-2">
                   <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Budget range</div>
                   <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Required specs</div>
@@ -199,13 +200,13 @@ export function FindMachineForm() {
             <select
               value={formData.timeline}
               onChange={e => setFormData({ ...formData, timeline: e.target.value })}
-              className="w-full"
+              className={`w-full ${!formData.timeline ? 'text-gray-500' : 'text-gray-200'}`}
               required
             >
-              <option value="">When do you need it?</option>
-              <option value="urgent">Urgent (ASAP)</option>
-              <option value="3months">1-3 months</option>
-              <option value="flexible">Flexible</option>
+              <option value="" className="text-gray-500">When do you need it?</option>
+              <option value="urgent" className="text-gray-200">Urgent (ASAP)</option>
+              <option value="3months" className="text-gray-200">1-3 months</option>
+              <option value="flexible" className="text-gray-200">Flexible</option>
             </select>
           </div>
 
@@ -223,7 +224,7 @@ export function FindMachineForm() {
             )}
           </div>
 
-          <div className="flex justify-center pt-4">
+          <div className="flex justify-center pt-4 pb-8">
             <Button 
               type="submit" 
               variant="primary" 

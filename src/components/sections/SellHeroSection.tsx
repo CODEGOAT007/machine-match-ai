@@ -16,38 +16,42 @@ export function SellHeroSection() {
       
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
         <div className="text-center relative z-10">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
             Selling Used Machinery
             <br />
             <span className="gradient-text">Just Got Way Easier</span>
           </h1>
           <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <div className="absolute top-4 right-4 bg-yellow-500/90 px-4 py-2 rounded-lg text-black text-sm font-medium shadow-lg transform rotate-2">
+                <div>Fix These Steps!</div>
+                <div>Fix Pop-ups!</div>
+              </div>
               {[
                 {
-                  step: '1',
-                  title: 'Tell us what you have',
-                  description: 'Describe your machinery in plain language'
+                  text: 'Describe what you need to sell.'
                 },
                 {
-                  step: '2',
-                  title: 'AI Buyer Match',
-                  description: 'Our AI connects you with active buyers'
+                  text: 'Our AI algorithms search for buyers and relay direct questions & offers.'
+                },
+                {
+                  text: 'Review offers and close.'
                 }
-              ].map((step, index) => (
+              ].map((item, index) => (
                 <div 
                   key={index}
-                  className="relative p-6 px-4 rounded-lg bg-gray-800/30 border border-gray-700/50"
+                  className="relative p-6 px-4 rounded-lg bg-gray-800/30 border border-gray-700/50 shadow-lg shadow-black/25"
                 >
-                  <div className="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center text-sm font-medium">
-                    {step.step}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="px-3 py-1 rounded-md bg-sky-500 text-white text-sm font-medium">
+                      Step {index + 1}
+                    </span>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 min-h-[56px] flex items-center justify-center">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 min-h-[40px] flex items-center justify-center">
-                    {step.description}
-                  </p>
+                  <div className="mt-4">
+                    <p className="text-gray-300 text-base">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

@@ -16,7 +16,7 @@ export function FindHeroSection() {
       
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
         <div className="text-center relative z-10">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
             Buying Used Machinery
             <br />
             <span className="gradient-text">Just Got Way Easier</span>
@@ -25,24 +25,24 @@ export function FindHeroSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
               {[
                 {
-                  text: 'Describe what you need in plain language'
+                  text: 'Describe what you need in plain language.'
                 },
                 {
-                  text: 'AI searches the entire market for matches'
+                  text: 'AI searches the entire market for matches.'
                 },
                 {
-                  text: 'Select your preferred option'
+                  text: 'Select your preferred option.'
                 },
                 {
-                  text: 'We can handle inspection and delivery'
+                  text: 'We can handle inspection and delivery.'
                 }
               ].map((item, index) => (
                 <div 
                   key={index}
-                  className="relative p-6 px-4 rounded-lg bg-gray-800/30 border border-gray-700/50"
+                  className="relative p-6 px-4 rounded-lg bg-gray-800/30 border border-gray-700/50 shadow-lg shadow-black/25"
                 >
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-3 py-1 rounded-md bg-sky-500 text-white text-sm font-medium">
+                    <span className="px-3 py-1 rounded-md bg-yellow-500/90 text-black text-sm font-bold">
                       Step {index + 1}
                     </span>
                   </div>

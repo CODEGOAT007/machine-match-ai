@@ -14,9 +14,6 @@ export function Layout({ children }: LayoutProps) {
       <Head>
         <title>MachineMatch AI - AI-Powered Machinery Matching</title>
         <meta name="description" content="Find or list industrial machinery with AI-powered matching" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
       <div className="min-h-screen flex flex-col select-none">
         <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-[var(--background)]/80 border-b border-gray-800/50">

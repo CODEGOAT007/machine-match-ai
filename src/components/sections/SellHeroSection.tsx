@@ -23,10 +23,6 @@ export function SellHeroSection() {
           </h1>
           <div className="max-w-3xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              <div className="absolute top-4 right-4 bg-yellow-500/90 px-4 py-2 rounded-lg text-black text-sm font-medium shadow-lg transform rotate-2">
-                <div>Fix These Steps!</div>
-                <div>Fix Pop-ups!</div>
-              </div>
               {[
                 {
                   text: 'Describe what you need to sell.'
@@ -35,7 +31,7 @@ export function SellHeroSection() {
                   text: 'Our AI algorithms search for buyers and relay direct questions & offers.'
                 },
                 {
-                  text: 'Review offers and close.'
+                  text: 'Finalize Terms & Receive Payment.'
                 }
               ].map((item, index) => (
                 <div 
@@ -43,7 +39,7 @@ export function SellHeroSection() {
                   className="relative p-6 px-4 rounded-lg bg-gray-800/30 border border-gray-700/50 shadow-lg shadow-black/25"
                 >
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-3 py-1 rounded-md bg-sky-500 text-white text-sm font-medium">
+                    <span className="px-3 py-1 rounded-md bg-yellow-500/90 text-black text-sm font-bold">
                       Step {index + 1}
                     </span>
                   </div>

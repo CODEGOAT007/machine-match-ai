@@ -50,6 +50,19 @@ export function SellMachineForm() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex gap-4">
+            {isFocused && (
+              <div className="w-36 sm:w-48 shrink-0 text-sm text-gray-400">
+                <p className="font-medium text-sky-400 mb-1 sm:mb-2">
+                  Try to include:
+                </p>
+                <div className="space-y-1 sm:space-y-2">
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Year/Make/Model</div>
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Running/Under Power</div>
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Location</div>
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Reason for Sale</div>
+                </div>
+              </div>
+            )}
             <textarea
               placeholder="Tell us about your machine..."
               value={formData.details}
@@ -60,19 +73,6 @@ export function SellMachineForm() {
               className="flex-1"
               required
             />
-            {isFocused && (
-              <div className="w-48 shrink-0 text-sm text-gray-400">
-                <p className="font-medium text-sky-400 mb-2">
-                  Try to include:
-                </p>
-                <div className="space-y-2">
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Year/Make/Model</div>
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Running/Under Power</div>
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Location</div>
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Reason for Sale</div>
-                </div>
-              </div>
-            )}
           </div>
 
           <div>

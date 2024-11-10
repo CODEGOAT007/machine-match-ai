@@ -3,6 +3,7 @@ import { Button } from '../ui/Button'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../lib/firebase/config'
 import { sendToSheets } from '../../lib/services/sheets'
+import { Toast } from '../ui/Toast'
 
 const BLOCKED_DOMAINS = [
   'gmail.com',
@@ -119,6 +120,9 @@ export function FindMachineForm() {
   })
   const [emailError, setEmailError] = useState('')
   const [isFocused, setIsFocused] = useState(false)
+  const [showToast, setShowToast] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
+  const [toastType, setToastType] = useState<'success' | 'error'>('success')
 
   const validateBusinessEmail = (email: string) => {
     const domain = email.split('@')[1]?.toLowerCase()
@@ -154,16 +158,27 @@ export function FindMachineForm() {
 
       await sendToSheets(formData, 'buyer')
 
-      alert('Thank you! We will be in touch soon.')
+      setToastMessage('Thank you! We will be in touch soon.')
+      setToastType('success')
+      setShowToast(true)
       setFormData({ additionalDetails: '', timeline: '', email: '' })
     } catch (error) {
       console.error('Error submitting form:', error)
-      alert('There was an error submitting your request. Please try again.')
+      setToastMessage('There was an error submitting your request. Please try again.')
+      setToastType('error')
+      setShowToast(true)
     }
   }
 
   return (
     <div className="relative py-4">
+      {showToast && (
+        <Toast 
+          message={toastMessage}
+          type={toastType}
+          onClose={() => setShowToast(false)}
+        />
+      )}
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-semibold gradient-text">Find Your Machine</h2>
@@ -171,6 +186,19 @@ export function FindMachineForm() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex gap-4">
+            {isFocused && (
+              <div className="w-36 sm:w-48 shrink-0 text-sm text-gray-400">
+                <p className="font-medium text-sky-400 mb-1 sm:mb-2">
+                  Try to include:
+                </p>
+                <div className="space-y-1 sm:space-y-2">
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Budget range</div>
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Required specs</div>
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Preferred brands</div>
+                  <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-800/50 rounded border border-gray-700/50">Age range</div>
+                </div>
+              </div>
+            )}
             <textarea
               placeholder="Tell us what you're looking for..."
               value={formData.additionalDetails}
@@ -181,19 +209,6 @@ export function FindMachineForm() {
               className="flex-1"
               required
             />
-            {isFocused && (
-              <div className="w-48 shrink-0 text-sm text-gray-400">
-                <p className="font-medium text-sky-400 mb-2">
-                  Try to include:
-                </p>
-                <div className="space-y-2">
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Budget range</div>
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Required specs</div>
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Preferred brands</div>
-                  <div className="px-2 py-1 bg-gray-800/50 rounded border border-gray-700/50">Age range</div>
-                </div>
-              </div>
-            )}
           </div>
 
           <div>

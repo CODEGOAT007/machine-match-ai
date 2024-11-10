@@ -99,3 +99,17 @@ body {
     @apply border-red-500/50;
   }
 }
+
+/* Add these animation classes */
+.fade-out {
+  animation: fadeOut 500ms ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

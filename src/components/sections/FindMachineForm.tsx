@@ -123,6 +123,7 @@ export function FindMachineForm() {
   const [showToast, setShowToast] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
   const [toastType, setToastType] = useState<'success' | 'error'>('success')
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const validateBusinessEmail = (email: string) => {
     const domain = email.split('@')[1]?.toLowerCase()
@@ -157,17 +158,48 @@ export function FindMachineForm() {
       })
 
       await sendToSheets(formData, 'buyer')
-
-      setToastMessage('Thank you! We will be in touch soon.')
-      setToastType('success')
-      setShowToast(true)
-      setFormData({ additionalDetails: '', timeline: '', email: '' })
+      setIsSubmitted(true)
     } catch (error) {
       console.error('Error submitting form:', error)
       setToastMessage('There was an error submitting your request. Please try again.')
       setToastType('error')
       setShowToast(true)
     }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm">
+        <div className="max-w-lg w-full">
+          <div className="p-8 rounded-xl bg-gray-800/90 border-2 border-green-500/20 backdrop-blur-sm text-center space-y-4">
+            <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto">
+              <svg className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-semibold gradient-text">Finding Your Machine!</h2>
+            <p className="text-gray-400 max-w-md mx-auto">
+              Our matching system is analyzing your requirements to connect the best possible matches. You will be contacted at the email provided.
+            </p>
+            <div className="pt-2">
+              <Button 
+                variant="primary" 
+                size="lg"
+                onClick={() => {
+                  document.body.classList.add('fade-out');
+                  setTimeout(() => {
+                    window.location.href = '/';
+                  }, 500);
+                }}
+                className="bg-green-500/90 hover:bg-green-500"
+              >
+                Return Home
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

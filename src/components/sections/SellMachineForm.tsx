@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Button } from '../ui/Button'
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from '../../lib/firebase/config'
 
 interface SellMachineFormData {
   details: string
@@ -16,8 +18,20 @@ export function SellMachineForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    // TODO: Add Firebase submission
+
+    try {
+      await addDoc(collection(db, 'listings'), {
+        ...formData,
+        type: 'seller',
+        timestamp: new Date().toISOString(),
+        status: 'new'
+      })
+      alert('Thank you! We will be in touch soon.')
+      setFormData({ details: '', timeline: '', email: '' })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('There was an error submitting your request. Please try again.')
+    }
   }
 
   return (
@@ -57,7 +71,7 @@ export function SellMachineForm() {
           <div>
             <input
               type="email"
-              placeholder="Your email address for buyer inquiries"
+              placeholder="Your email address"
               value={formData.email}
               onChange={e => setFormData({ ...formData, email: e.target.value })}
               className="w-full"

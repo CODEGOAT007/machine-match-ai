@@ -18,7 +18,7 @@ export function Layout({ children }: LayoutProps) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col select-none">
         <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-[var(--background)]/80 border-b border-gray-800/50">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             {/* Logo */}
@@ -93,11 +93,11 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </header>
 
-        <main className="flex-grow pt-12">
+        <main className="pt-16 flex-1">
           {children}
         </main>
 
-        <footer className="border-t border-gray-800/50 py-6 mt-0">
+        <footer className="border-t border-gray-800/50 py-6 bg-[var(--background)] mt-auto">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center text-gray-400 text-sm">
               <p>© {new Date().getFullYear()} MachineMatch.AI. All rights reserved.</p>

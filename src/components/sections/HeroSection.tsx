@@ -5,10 +5,10 @@ import { CTAButtons } from './CTAButtons'
 export function HeroSection() {
   return (
     <div className="relative">
-      <div className="hero-gradient absolute inset-0" />
+      <div className="hero-gradient" />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 rotate-45 transform-gpu">
+          <div className="absolute inset-0" style={{ transform: 'rotate(45deg)' }}>
             <div className="absolute top-0 left-0 w-40 h-40 bg-sky-500 rounded-full blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-500 rounded-full blur-[120px]" />
           </div>

@@ -6,7 +6,7 @@ import { HeroSection } from '../components/sections/HeroSection'
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="h-[calc(100vh-64px)] flex items-center">
+      <div className="relative overflow-hidden h-[calc(100vh-9rem)] flex items-center">
         <div className="w-full">
           <HeroSection />
         </div>
